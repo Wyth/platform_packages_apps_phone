@@ -1593,10 +1593,22 @@ public class CallFeaturesSetting extends PreferenceActivity
             }
         }
 
+<<<<<<< HEAD
+=======
+        if (mButtonNoiseSuppression != null) {
+            if (getResources().getBoolean(R.bool.has_in_call_noise_suppression)) {
+                mButtonNoiseSuppression.setOnPreferenceChangeListener(this);
+            } else {
+                prefSet.removePreference(mButtonNoiseSuppression);
+                mButtonNoiseSuppression = null;
+            }
+        }
+
         if (mFlipAction != null) {
             mFlipAction.setOnPreferenceChangeListener(this);
         }
 
+>>>>>>> ac4243c... Flip to mute/dismiss call
         if (!getResources().getBoolean(R.bool.world_phone)) {
             Preference options = prefSet.findPreference(BUTTON_CDMA_OPTIONS);
             if (options != null)
@@ -1811,7 +1823,6 @@ public class CallFeaturesSetting extends PreferenceActivity
         if (migrateVoicemailVibrationSettingsIfNeeded(prefs)) {
             mVoicemailNotificationVibrate.setChecked(prefs.getBoolean(
                     BUTTON_VOICEMAIL_NOTIFICATION_VIBRATE_KEY, false));
-        }
         if (mFlipAction != null) {
             updateFlipActionSummary(mFlipAction.getValue());
         }
